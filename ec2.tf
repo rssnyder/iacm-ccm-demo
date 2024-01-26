@@ -22,7 +22,7 @@ resource "aws_instance" "half" {
 sudo apt-get update -y &&
 sudo apt-get install -y nginx stress
 
-curl -L https://gist.githubusercontent.com/rssnyder/d830bce54f504407986daaa3585d1b18/raw/aee50637e3ed3bc68288b57782074444b089ec7c/stress2.service -o /etc/system/systemd/stress.service
+curl -L https://gist.githubusercontent.com/rssnyder/d830bce54f504407986daaa3585d1b18/raw/aee50637e3ed3bc68288b57782074444b089ec7c/stress2.service -o /etc/systemd/system/stress.service
 systemctl daemon-reload
 systemctl enable stress
 systemctl start stress
@@ -42,7 +42,7 @@ resource "aws_instance" "full" {
 sudo apt-get update -y &&
 sudo apt-get install -y nginx stress
 
-curl -L https://gist.githubusercontent.com/rssnyder/d830bce54f504407986daaa3585d1b18/raw/aee50637e3ed3bc68288b57782074444b089ec7c/stress4.service -o /etc/system/systemd/stress.service
+curl -L https://gist.githubusercontent.com/rssnyder/d830bce54f504407986daaa3585d1b18/raw/aee50637e3ed3bc68288b57782074444b089ec7c/stress4.service -o /etc/systemd/system/stress.service
 systemctl daemon-reload
 systemctl enable stress
 systemctl start stress
