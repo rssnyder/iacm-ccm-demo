@@ -21,7 +21,11 @@ resource "aws_instance" "half" {
 #!/bin/bash
 sudo apt-get update -y &&
 sudo apt-get install -y nginx stress
-stress --cpu 2
+
+curl -L https://gist.githubusercontent.com/rssnyder/d830bce54f504407986daaa3585d1b18/raw/aee50637e3ed3bc68288b57782074444b089ec7c/stress2.service -o /etc/system/systemd/stress.service
+systemctl daemon-reload
+systemctl enable stress
+systemctl start stress
 EOF
   vpc_security_group_ids = [aws_security_group.allow_http.id]
   tags = {
@@ -37,7 +41,11 @@ resource "aws_instance" "full" {
 #!/bin/bash
 sudo apt-get update -y &&
 sudo apt-get install -y nginx stress
-stress --cpu 4 &
+
+curl -L https://gist.githubusercontent.com/rssnyder/d830bce54f504407986daaa3585d1b18/raw/aee50637e3ed3bc68288b57782074444b089ec7c/stress4.service -o /etc/system/systemd/stress.service
+systemctl daemon-reload
+systemctl enable stress
+systemctl start stress
 EOF
   vpc_security_group_ids = [aws_security_group.allow_http.id]
   tags = {
