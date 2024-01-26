@@ -1,6 +1,6 @@
 resource "aws_instance" "idle" {
   ami                    = var.ami
-  instance_type          = "t3.micro"
+  instance_type          = "m7g.xlarge"
   iam_instance_profile   = var.ssm_instance_profile
   user_data              = <<EOF
 #!/bin/bash
@@ -15,7 +15,7 @@ EOF
 
 resource "aws_instance" "half" {
   ami                    = var.ami
-  instance_type          = "t3.micro"
+  instance_type          = "m7g.xlarge"
   iam_instance_profile   = var.ssm_instance_profile
   user_data              = <<EOF
 #!/bin/bash
@@ -31,7 +31,7 @@ EOF
 
 resource "aws_instance" "full" {
   ami                    = var.ami
-  instance_type          = "t3.micro"
+  instance_type          = "m7g.xlarge"
   iam_instance_profile   = var.ssm_instance_profile
   user_data              = <<EOF
 #!/bin/bash
