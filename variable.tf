@@ -32,14 +32,3 @@ variable "hostedzone" {
   type    = string
   default = "Z2X614CI8JN37A"
 }
-
-variable "alb_arn" {
-  type        = string
-  description = "An existing ALB arn to use. If not set one will be created for you"
-  default     = ""
-}
-
-variable "harness_cloud_connector_id" {
-  type    = string
-  default = "sales"
-}

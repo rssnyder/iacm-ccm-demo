@@ -19,7 +19,7 @@ resource "aws_lb_target_group" "http" {
 
 resource "aws_lb_target_group_attachment" "ec2" {
   for_each = {
-    for instance in [aws_instance.idle, aws_instance.half, aws_instance.full] : "${instance.tags.Name}" => instance
+    for instance in [aws_instance.idle, aws_instance.half, aws_instance.full] : instance.tags.Name => instance
   }
   target_group_arn = aws_lb_target_group.http.arn
   target_id        = each.value.id
