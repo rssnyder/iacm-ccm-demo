@@ -13,6 +13,7 @@ provider "aws" {
   default_tags {
     tags = {
       owner   = "riley.snyder@harness.io"
+      app     = "iacmccmdemo"
       ttl     = "-1"
       purpose = "demo"
       note    = "do not delete"
