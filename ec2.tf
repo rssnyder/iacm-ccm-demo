@@ -21,7 +21,7 @@ resource "aws_instance" "half" {
 #!/bin/bash
 sudo apt-get update -y &&
 sudo apt-get install -y nginx stress
-stress --cpu 1
+stress --cpu 2
 EOF
   vpc_security_group_ids = [aws_security_group.allow_http.id]
   tags = {
@@ -37,7 +37,7 @@ resource "aws_instance" "full" {
 #!/bin/bash
 sudo apt-get update -y &&
 sudo apt-get install -y nginx stress
-stress --cpu 2 &
+stress --cpu 4 &
 EOF
   vpc_security_group_ids = [aws_security_group.allow_http.id]
   tags = {
