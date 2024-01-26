@@ -18,6 +18,11 @@ variable "region" {
   default = "us-west-2"
 }
 
+variable "instance_type" {
+  type    = string
+  default = "t3.xlarge"
+}
+
 variable "ami" {
   type    = string
   default = "ami-0efcece6bed30fd98"
