@@ -1,0 +1,21 @@
+policies:
+- name: ec2-resize-cpu-utilization
+  description: Resize ec2 where the max cpu utilization for last 7 days is less than 50%
+  resource: ec2
+  filters:
+  - type: value
+    key: "tag:app"
+    value: "iacmccmdemospot"
+  - type: metrics
+    name: CPUUtilization
+    days: 7
+    period: 86400
+    value: 50
+    op: less-than
+  actions:
+  - type: resize
+    type-map:
+        m7g.xlarge: m7g.large
+        m7g.large: m7g.medium
+        t3.xlarge: t3.large
+    restart: true

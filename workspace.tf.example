@@ -1,0 +1,68 @@
+resource "harness_platform_workspace" "iacm_ccm_demo" {
+  name                    = "iacm ccm demo"
+  identifier              = "iacm_ccm_demo"
+  org_id                  = "default"
+  project_id              = "auto_stopping_lab"
+  provisioner_type        = "terraform"
+  provisioner_version     = "1.5.6"
+  repository              = "iacm-ccm-demo"
+  repository_branch       = "main"
+  repository_path         = ""
+  cost_estimation_enabled = true
+
+  # github connector that can resolve repo above
+  provider_connector   = "account.rssnyder"
+  repository_connector = "account.rssnyder"
+
+  terraform_variable {
+    key        = "name"
+    value      = "iacm-ccm-demo"
+    value_type = "string"
+  }
+
+  terraform_variable {
+    key        = "instance_type"
+    value      = "m7g.xlarge"
+    value_type = "string"
+  }
+
+  terraform_variable {
+    key        = "ami"
+    value      = "ami-0a24e6e101933d294"
+    value_type = "string"
+  }
+
+  # Harness Auth
+  environment_variable {
+    key        = "HARNESS_ACCOUNT_ID"
+    value      = "wlgELJ0TTre5aZhzpt8gVA"
+    value_type = "string"
+  }
+  environment_variable {
+    key        = "HARNESS_PLATFORM_API_KEY"
+    value      = "account.harness_api_token"
+    value_type = "secret"
+  }
+
+  # AWS Auth
+  environment_variable {
+    key        = "AWS_DEFAULT_REGION"
+    value      = "us-west-2"
+    value_type = "string"
+  }
+  environment_variable {
+    key        = "AWS_ACCESS_KEY_ID"
+    value      = "AWS_ACCESS_KEY_ID"
+    value_type = "secret"
+  }
+  environment_variable {
+    key        = "AWS_SECRET_ACCESS_KEY"
+    value      = "AWS_SECRET_ACCESS_KEY"
+    value_type = "secret"
+  }
+  environment_variable {
+    key        = "AWS_SESSION_TOKEN"
+    value      = "AWS_SESSION_TOKEN"
+    value_type = "secret"
+  }
+}
