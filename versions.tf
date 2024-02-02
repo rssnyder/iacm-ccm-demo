@@ -12,11 +12,12 @@ provider "aws" {
   region = var.region
   default_tags {
     tags = {
-      owner   = "riley.snyder@harness.io"
-      app     = var.name
-      ttl     = "-1"
-      purpose = "demo"
-      note    = "do not delete"
+      owner    = "riley.snyder@harness.io"
+      app      = var.name
+      ttl      = "-1"
+      purpose  = "demo"
+      note     = "do not delete"
+      Schedule = "us-work-hours"
     }
   }
 }
